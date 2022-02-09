@@ -6,5 +6,10 @@ pipeline {
                 git credentialsId: 'Mycred', url: 'https://github.com/RiyaSriv1414/angular-8-registration-login-example.git'
             }
         }
+        stage('Install dependency') {
+            steps {
+                bat 'npm install'
+            }
+        }
     }
 }
