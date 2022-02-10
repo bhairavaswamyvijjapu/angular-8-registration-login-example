@@ -17,14 +17,14 @@ pipeline {
             }
         }
         stage('Test') {
-      parallel {
+        parallel {
         stage('Static code analysis') {
-            steps { sh 'npm run-script lint' }
+            steps { bat 'npm run-script lint' }
         }
         stage('Unit tests') {
-            steps { sh 'npm run-script test' }
+            steps { bat 'npm run-script test' }
         }
       }
     }
-    }
+  }
 }
