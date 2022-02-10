@@ -13,12 +13,7 @@ pipeline {
         }
         stage('Run NPM Build') {
             steps {
-                bat 'npm run build'
-            }
-        }
-        stage('Start the Application') {
-            steps {
-                bat 'npm start'
+                bat 'ng build –prod'
             }
         }
     }
