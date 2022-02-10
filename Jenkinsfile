@@ -16,15 +16,11 @@ pipeline {
                 bat 'npm run build'
             }
         }
-        stage('Test') {
-        parallel {
         stage('Static code analysis') {
-            steps { bat 'npm run-script lint' }
+            steps bat 'npm run-script lint' 
         }
         stage('Unit tests') {
-            steps { bat 'npm run-script test' }
+            steps bat 'npm run-script test' 
         }
-      }
     }
-  }
 }
