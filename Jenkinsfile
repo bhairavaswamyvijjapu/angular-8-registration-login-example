@@ -18,8 +18,8 @@ pipeline {
         }
         stage('Upload to S3 bucket'){
             steps{
-                s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'fairi-webportal', excludedFile: '', flatten: false, gzipFiles: true, keepForever: true, managedArtifacts: true, noUploadOnFailure: false, selectedRegion: 'us-east-1', showDirectlyInBrowser: false, sourceFile: '*/', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: true]], pluginFailureResultConstraint: 'FAILURE', profileName: 'S3 access', userMetadata: []
-                }
+                s3Upload acl: 'Private', bucket: 'fairi-webportal', cacheControl: '', excludePathPattern: '', file: '*/', includePathPattern: 'dist/*', metadatas: [''], redirectLocation: '', sseAlgorithm: '', tags: '', text: '', workingDir: 'C:\\Users\\Administrator\\.jenkins\\workspace\\angular'
             }
         }
+       }
     }
