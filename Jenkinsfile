@@ -18,8 +18,8 @@ pipeline {
         }
         stage('Upload to S3 bucket'){
             steps{
-                withAWS(region:'us-east-1', endpointUrl:'s3://fairi-webportal/jobs/'){
-                s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'fairi-webportal', excludedFile: '', flatten: false, gzipFiles: true, keepForever: false, managedArtifacts: true, noUploadOnFailure: true, selectedRegion: 'us-east-1', showDirectlyInBrowser: false, sourceFile: '*/', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'S3 access', userMetadata: []
+                withAWS(region:'us-east-1', endpointUrl:'s3://fairi-webportal'){
+                s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'fairi-webportal', excludedFile: '', flatten: false, gzipFiles: true, keepForever: true, managedArtifacts: true, noUploadOnFailure: false, selectedRegion: 'us-east-1', showDirectlyInBrowser: false, sourceFile: '*/', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: true]], pluginFailureResultConstraint: 'FAILURE', profileName: 'S3 access', userMetadata: []
                 }
             }
         }
