@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Upload to S3 bucket'){
             steps{
-                s3Upload acl: 'Private', bucket: 'fairi-webportal', cacheControl: '', excludePathPattern: '', file: '*/', includePathPattern: 'dist/**', metadatas: [''], redirectLocation: '', sseAlgorithm: '', tags: '', text: '', workingDir: 'C:\\Users\\Administrator\\.jenkins\\workspace\\angular'
+                s3Upload acl: 'Private', bucket: 'fairi-webportal', cacheControl: '', excludePathPattern: '', file: '', includePathPattern: 'dist/**', metadatas: [''], redirectLocation: '', sseAlgorithm: '', tags: '', text: '', workingDir: 'C:\\Users\\Administrator\\.jenkins\\workspace\\angular'
             }
         }
        }
