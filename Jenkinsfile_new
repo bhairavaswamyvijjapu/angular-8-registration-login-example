@@ -17,8 +17,8 @@ pipeline {
             }
         }
         stage('Upload to S3 bucket'){
-            steps{
-                s3Upload entries: [[bucket: 'fairi-webportal', excludedFile: '', flatten: false, gzipFiles: true, keepForever: true, managedArtifacts: true, noUploadOnFailure: true, selectedRegion: 'us-east-1', showDirectlyInBrowser: false, sourceFile: '*/', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'S3 access', userMetadata: []             
+            steps{ 
+                s3Upload(bucket:"fairi-webportal", workingDir:'dist', includePathPattern:'**/*');
                 }
         }
     }
