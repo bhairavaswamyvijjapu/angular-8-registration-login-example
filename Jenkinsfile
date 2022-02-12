@@ -16,7 +16,7 @@ pipeline {
                 bat 'npm run build'
             }
         }
-        stage('Run Sonarqube analysis) {
+        stage('Run Sonarqube analysis') {
             steps {
                 bat 'npm run sonar'
             }
