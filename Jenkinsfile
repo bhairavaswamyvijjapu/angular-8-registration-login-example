@@ -16,10 +16,10 @@ pipeline {
                 bat 'npm run build'
             }
         }
-        stage('Run Sonarqube analysis') {
-            steps {
-                bat 'npm run sonar'
-            }
+        stage('Upload to S3 bucket'){
+            steps{ 
+                s3Upload(bucket:"fairi-webportal", workingDir:'dist', includePathPattern:'**/*');
+                }
         }
        }
     }
