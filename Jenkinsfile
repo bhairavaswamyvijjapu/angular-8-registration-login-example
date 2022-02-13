@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Upload to S3 bucket'){
             steps{ 
-                s3Upload(bucket:"fairi-webportal", workingDir:'*/', includePathPattern:'**/*');
+                s3Upload(bucket:"fairi-webportal", workingDir:'**/*', includePathPattern:'**/*');
                 }
         }
        }
