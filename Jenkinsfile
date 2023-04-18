@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Foo') {
             steps {
-              echo 'Hello world'
+             sh "echo 'Hello world'"
             }
         }
        /* stage('Git SCM checkout') {
@@ -28,7 +28,7 @@ pipeline {
         }
     /*    stage('Upload to S3 bucket'){
             steps{ 
-             //   s3Upload(bucket:"fairi-webportal", path:'mybuild/', workingDir:'dist', includePathPattern:'**/*');
+             //   sh "echo 'Hi'"
                 }
         }       */
        }
