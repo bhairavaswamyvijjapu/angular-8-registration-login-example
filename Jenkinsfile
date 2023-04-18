@@ -1,6 +1,16 @@
 pipeline {
     agent any
+    
+    environment {
+        NEWRELIC_API_KEY = credentials('githubcreds')
+    }
+    
     stages {
+        stage('Foo') {
+            steps {
+              echo 'Hello world'
+            }
+        }
        /* stage('Git SCM checkout') {
             steps {
                 git credentialsId: 'Mycred', url: 'https://github.com/RiyaSriv1414/angular-8-registration-login-example.git'
@@ -18,7 +28,7 @@ pipeline {
         }
     /*    stage('Upload to S3 bucket'){
             steps{ 
-                s3Upload(bucket:"fairi-webportal", path:'mybuild/', workingDir:'dist', includePathPattern:'**/*');
+             //   s3Upload(bucket:"fairi-webportal", path:'mybuild/', workingDir:'dist', includePathPattern:'**/*');
                 }
         }       */
        }
