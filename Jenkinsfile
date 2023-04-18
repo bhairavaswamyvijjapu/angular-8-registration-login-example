@@ -1,11 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Git SCM checkout') {
+       /* stage('Git SCM checkout') {
             steps {
                 git credentialsId: 'Mycred', url: 'https://github.com/RiyaSriv1414/angular-8-registration-login-example.git'
             }
-        }
+        }   */
         stage('Install dependency') {
             steps {
                 bat 'npm install'
@@ -16,10 +16,10 @@ pipeline {
                 bat 'npm run build'
             }
         }
-        stage('Upload to S3 bucket'){
+    /*    stage('Upload to S3 bucket'){
             steps{ 
                 s3Upload(bucket:"fairi-webportal", path:'mybuild/', workingDir:'dist', includePathPattern:'**/*');
                 }
-        }
+        }       */
        }
     }
