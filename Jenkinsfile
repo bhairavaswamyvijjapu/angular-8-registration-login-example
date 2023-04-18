@@ -8,12 +8,12 @@ pipeline {
         }   */
         stage('Install dependency') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
         stage('Run NPM Build') {
             steps {
-                bat 'npm run build'
+                sh 'npm run build'
             }
         }
     /*    stage('Upload to S3 bucket'){
