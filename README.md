@@ -1,9 +1,39 @@
-# angular-8-registration-login-example
+# HipWebPlannerUI
 
-Angular 8 User Registration and Login Example with Webpack 4
+## Prerequisites and versions
+- angular cli 16
+- nodejs ^16.14.0 || ^18.10.0
+- typescript >=4.9.3 <5.1.0
 
-1. Install NodeJS and NPM from https://nodejs.org/en/download/.
-2. Download or clone the tutorial project source code from https://github.com/sivakarthikeyan/angular-8-registration-login-example/
-3. Install all required npm packages by running npm install from the command line in the project root folder (where the package.json is located).
-4. Start the application by running npm start from the command line in the project root folder.
-5. Your browser should automatically open at http://localhost:8080 with the demo Angular 8 login page displayed.
+## Getting started
+
+
+### run Application
+
+    npm install
+    npm run start
+### run storybook
+
+    npm run storybook
+
+### run tests
+
+    npm run test
+
+### lint files
+
+    npm run lint:fix
+    npm run scss-html-lint
+
+
+## solve Ticket
+
+- [ ] [pick work-item](https://smith-nephew.atlassian.net/jira/software/c/projects/HIP/boards/916) 
+- [ ] create a branch with ticket name or use the command in create branch button in ticket
+- [ ] implement your change
+- [ ] run test and make sure coverage above 85%
+- [ ] push changes
+- [ ] create [merge request](https://gitlab.com/smithandnephew/robotics/HipWeb/Applications/HipWebPlannerUI/-/merge_requests)
+
+
+***

@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Pod
+spec:
+  serviceAccount: jenkins
+  nodeSelector:
+    env: jenkins-build
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1000Mi
+    limits:
+      memory: 4000Mi
+      cpu: 1000m
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+            matchExpressions:
+              - key: env
+                operator: In
+                values:
+                  - jenkins-build
+  tolerations:
+    - key: "highcpu"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+
+  volumes:
+    - name: dind-storage
+      emptyDir: {}
+
+  containers:
+    - name: npmtest
+      image: node:18.10.0
+      imagePullPolicy: IfNotPresent
+      command:
+        - cat
+      tty: true
+
+    - name: sonar
+      image: timbru31/java-node:latest
+      imagePullPolicy: IfNotPresent
+      command:
+        - cat
+      tty: true
+
+    - name: aws-cli
+      image: amazon/aws-cli:2.1.39
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      command:
+        - cat
+      tty: true
+
+    - name: dind
+      image: docker:18.05-dind
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      volumeMounts:
+        - mountPath: /var/lib/docker
+          name: dind-storage
+      tty: true
